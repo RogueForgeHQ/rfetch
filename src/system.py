@@ -1,5 +1,5 @@
 import platform
-
+import shutil
 
 def get_os_name():
     with open("/etc/os-release", "r") as file:
@@ -12,3 +12,6 @@ def get_os_name():
 
 def get_kernel():
     return platform.release()
+
+def is_steam_installed():
+    return shutil.which("steam") is not None
