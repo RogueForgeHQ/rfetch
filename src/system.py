@@ -1,7 +1,7 @@
 import platform
 import shutil
 import subprocess
-
+import os
 def get_os_name():
     with open("/etc/os-release", "r") as file:
         for line in file:
@@ -69,3 +69,12 @@ def get_uptime():
         remaining_seconds = seconds % 3600
         mins = remaining_seconds // 60
         return hours, mins
+
+def get_desktop_environment():
+    desktop = os.environ.get("XDG_CURRENT_DESKTOP")
+    
+    if desktop is None:
+            return "Unknown Desktop"
+    
+    desktop = desktop.split(":")[1]
+    return desktop
