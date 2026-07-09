@@ -14,9 +14,8 @@ A lightweight and fast Linux system information tool built by Rogue Forge.
 
 ## Preview
 
-```text
 ![rfetch Preview](assets/preview.png)
-```
+
 
 ## Installation
 
