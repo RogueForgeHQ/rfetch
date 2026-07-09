@@ -1,4 +1,4 @@
-from src.system import get_os_name, get_kernel, is_program_installed, get_cpu_name, get_ram_size, get_gpu_name, get_disk_usage, get_uptime, get_desktop_environment, get_display_server, get_shell, get_architecture, get_host, get_mesa_version, get_vulkan_version
+from src.system import get_os_name, get_kernel, is_program_installed, get_cpu_name, get_ram_size, get_gpu_name, get_disk_usage, get_uptime, get_desktop_environment, get_display_server, get_shell, get_architecture, get_host, get_mesa_version, get_vulkan_version, get_opengl_renderer
 
 def print_banner():
     print("============================")
@@ -37,7 +37,7 @@ def main():
     steam = "Installed ✅" if is_program_installed("steam") else "Not Installed ❌"
     print(f"{"Steam":<13}: {steam}")
 
-    gamemode = "Installed ✅" if is_program_installed("gamemode") else "Not Installed ❌"
+    gamemode = "Installed ✅" if is_program_installed("gamemoderun") else "Not Installed ❌"
     print(f"{"GameMode":<13}: {gamemode}")
 
     wine = "Installed ✅" if is_program_installed("wine") else "Not Installed ❌"
@@ -55,7 +55,7 @@ def main():
     gamescope = "Installed ✅" if is_program_installed("gamescope") else "Not Installed ❌"
     print(f"{'Gamescope':<13}: {gamescope}")
     print(f"{"Mesa":<13}: {get_mesa_version()}")
-
+    print(f"{"OpenGL":<13}: {get_opengl_renderer()}")
     print(f"{"Vulkan":<13}: {get_vulkan_version()}")
 
 if __name__ == "__main__":

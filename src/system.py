@@ -104,11 +104,14 @@ def get_host():
         return host
     
 def get_mesa_version():
+    if not shutil.which("glxinfo"):
+        return "Not Installed ❌"
     result = subprocess.run(
         ["glxinfo"],
         capture_output=True,
         text=True
     )
+
     for line in result.stdout.splitlines():
         if "OpenGL version string" in line:
             mesa_version = line.split("Mesa")[1]
@@ -131,3 +134,18 @@ def get_vulkan_version():
                 return line.split(":")[1].strip()
             
     return "Unknown Vulkan Version"
+
+def get_opengl_renderer():
+    if not shutil.which("glxinfo"):
+        return "Not Installed ❌"
+    result = subprocess.run(
+        ["glxinfo"],
+        capture_output=True,
+        text=True
+    )
+
+    for line in result.stdout.splitlines():
+        if "OpenGL renderer string" in line:
+            opengl = line.split(":")[1].strip()
+            return opengl
+    return "Unknown OpenGL"
