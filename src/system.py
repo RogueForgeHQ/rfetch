@@ -103,3 +103,16 @@ def get_host():
             return "Unknown host"
         return host
     
+def get_mesa_version():
+    result = subprocess.run(
+        ["glxinfo"],
+        capture_output=True,
+        text=True
+    )
+    for line in result.stdout.splitlines():
+        if "OpenGL version string" in line:
+            mesa_version = line.split("Mesa")[1]
+            mesa_version = mesa_version.split("-")[0]
+            mesa_version = mesa_version.strip()
+            return mesa_version
+    return "Unknown Mesa Version"

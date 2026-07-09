@@ -1,4 +1,4 @@
-from src.system import get_os_name, get_kernel, is_program_installed, get_cpu_name, get_ram_size, get_gpu_name, get_disk_usage, get_uptime, get_desktop_environment, get_display_server, get_shell, get_architecture, get_host
+from src.system import get_os_name, get_kernel, is_program_installed, get_cpu_name, get_ram_size, get_gpu_name, get_disk_usage, get_uptime, get_desktop_environment, get_display_server, get_shell, get_architecture, get_host, get_mesa_version
 
 def print_banner():
     print("============================")
@@ -51,10 +51,10 @@ def main():
 
     mangohud = "Installed ✅" if is_program_installed("mangohud") else "Not Installed ❌"
     print(f"{'Mangohud':<13}: {mangohud}")
-    
+
     gamescope = "Installed ✅" if is_program_installed("gamescope") else "Not Installed ❌"
     print(f"{'Gamescope':<13}: {gamescope}")
-    
+    print(f"{"Mesa":<13}: {get_mesa_version()}")
 
 
 
